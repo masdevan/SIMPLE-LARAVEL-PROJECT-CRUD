@@ -14,4 +14,9 @@ class Post extends Model
 
     // Exclude
     protected $guarded = ['id'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

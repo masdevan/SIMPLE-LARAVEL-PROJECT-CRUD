@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
@@ -24,22 +23,35 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
+        /*
         User::create([
             'name' => 'Bang Depan Anjay Mabar',
             'email' => 'bangdep@anjay.com',
             'password' => bcrypt('12345')
         ]);
+        */
+
+
+        User::factory(3)->create();
 
         Category::create([
-            'name' => 'this is Semvax',
-            'slug' => 'this-is-semvak'
+            'name' => 'Programming',
+            'slug' => 'programming'
         ]);
 
         Category::create([
-            'name' => 'idih fantad',
-            'slug' => 'idih-fantad'
+            'name' => 'Web Design',
+            'slug' => 'web-design'
         ]);
 
+        Category::create([
+            'name' => 'Design Ilustrasi',
+            'slug' => 'design-ilustrasi'
+        ]);
+
+        Post::factory(20)->create();
+
+        /*
         Post::create([
             'title' => 'Judul Pertama',
             'slug' => 'judul-pertama',
@@ -75,6 +87,7 @@ class DatabaseSeeder extends Seeder
             'category_id' => 2,
             'user_id' => 1
         ]);
+        */
 
     }
 }

@@ -3,10 +3,19 @@
 @section('container')
 <article>
     <h2>{{ $post->title }}</h2>
-    <p>By : Mang Dep in : <a href="/categories/{{ $post->category->slug }}">{{$post->category->name }}</a></p>
-    <h5>{{ $post->author }}</h5>
+
+    <p>By : <a href="/blog?author={{ $post->author->username }}"
+        class="text-decoration-none">{{ $post->author->name }}</a> in : <a class="text-decoration-none"
+        href="/blog?category={{ $post->category->slug }}">{{ $post->category->name }}</a>
+    <small>{{ $post->created_at->diffForHumans() }}</small>
+</p>
+
+    <img src="https://source.unsplash.com/1200x400/?nature" class="card-img-top img-fluid mb-5"
+                            alt="{{ $post->category->name }}">
+
+    <h5>{{ $post->author->name }}</h5>
     <p>{!! $post->body !!}</p>
 </article>
 
-<a href="/blog">Back to Post</a>
+<a href="/blog" class="d-block mt-5 text-decoration-none">Back to Post</a>
 @endsection

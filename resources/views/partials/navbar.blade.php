@@ -20,9 +20,21 @@
                 </li>
             </ul>
             <ul class="navbar nav ms-auto">
+            @auth
+            <li class="nav-item dropdown">
+                <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Welome Back User {{ auth()->user()->name  }}
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> Dashboard</a></li>
+                  <form action="/logout" method="POST">@csrf<button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> LogOut</button></form>
+                </ul>
+              </li>
+            @else
                 <li class="nav-item">
                     <a href="/login" class="nav-link text-white {{ ($active === "Login") ? 'active' : "" }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
                 </li>
+                @endauth
             </ul>
         </div>
     </div>
